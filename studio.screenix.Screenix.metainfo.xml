@@ -3,6 +3,9 @@
   <id>studio.screenix.Screenix</id>
   <name>Screenix</name>
   <summary>Professional screen recorder with smooth zoom effects</summary>
+  <developer id="studio.screenix">
+    <name>Screenix</name>
+  </developer>
   <metadata_license>MIT</metadata_license>
   <project_license>LicenseRef-proprietary</project_license>
 
@@ -28,6 +31,18 @@
   <provides>
     <binary>screenix-gui</binary>
   </provides>
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://cdn.usearctic.sh/flatpak-screenshots/screenix-editor.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://cdn.usearctic.sh/flatpak-screenshots/screenix-export.png</image>
+    </screenshot>
+    <screenshot>
+      <image>https://cdn.usearctic.sh/flatpak-screenshots/screenix-menu.png</image>
+    </screenshot>
+  </screenshots>
 
   <releases>
     <release version="1.0.0" date="2026-05-20"/>

@@ -8,7 +8,7 @@ command: screenix-gui
 finish-args:
   # Display
   - --socket=wayland
-  - --socket=x11
+  - --socket=fallback-x11
   - --share=ipc
 
   # Audio (PipeWire PulseAudio compat layer)
@@ -24,18 +24,14 @@ finish-args:
   - --device=all
   - --filesystem=/sys/class/video4linux:ro
 
-  # File system — recordings saved to user-selected directory
-  - --filesystem=home
+  # File system — app state, license, trial data, and recordings.
+  - --filesystem=~/.config/screenix:create
+  - --filesystem=xdg-videos:create
 
-  # GNOME extension install to user-local path (~/.local/share/gnome-shell)
-  - --filesystem=xdg-data/gnome-shell:create
+  # GNOME extension install is intentionally not granted for the Flathub build.
 
   # PipeWire native client access for Wayland portal capture.
   - --filesystem=xdg-run/pipewire-0
-
-  # XDG desktop portal — Wayland screencast (PipeWire node negotiation)
-  - --talk-name=org.freedesktop.portal.Desktop
-  - --talk-name=org.freedesktop.portal.ScreenCast
 
   # GNOME monitor detection via Mutter D-Bus
   - --talk-name=org.gnome.Mutter.DisplayConfig
@@ -64,6 +60,7 @@ modules:
       - type: git
         url: https://gitlab.freedesktop.org/emersion/grim.git
         tag: v1.4.1
+        commit: 1f79ee93928a8c4fe583166ee833dce76f311f6d
 
   # ── wlr-randr ──────────────────────────────────────────────────────────────
   # Monitor detection on wlroots compositors.
@@ -73,6 +70,7 @@ modules:
       - type: git
         url: https://gitlab.freedesktop.org/emersion/wlr-randr.git
         tag: v0.5.0
+        commit: 4e239ef2317235d35b2693a55efadc23153a037a
 
   # ── xinput ────────────────────────────────────────────────────────────────
   # Used by the X11 cursor tracker for click detection.
